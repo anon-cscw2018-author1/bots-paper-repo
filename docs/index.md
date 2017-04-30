@@ -1,6 +1,6 @@
 # Bots paper repo
 
-[Sample diff tables](https://anon-cscw2018-author1/bots-paper-repo/sample_tables/)
+## Sample diff tables
 
 - [English](https://anon-cscw2018-author1.github.io/bots-paper-repo/sample_tables/en/ns0/en_ns0_sample_all.html)
 - [German](https://anon-cscw2018-author1.github.io/bots-paper-repo/sample_tables/de/ns0/de_ns0_sample_all.html)
