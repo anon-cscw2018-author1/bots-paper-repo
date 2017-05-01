@@ -3,7 +3,7 @@ Anonymous repo for a paper in submission to CSCW 2018.
 
 ## Datasets
 ### Data dumps
-This project begins with the the stub-meta-history.xml.gz dumps from the Wikimedia foundation. Note that these files are large -- approximately 85GB compressed -- and take a week parse on a 16 core Xeon workstation. As we are not taking issue with the way in which previous researchers have computationally identified reverts, replicating this step is not crucial. We recommend those interested in replication start with the revert datasets, described below.
+This project begins with the the stub-meta-history.xml.gz dumps from the Wikimedia foundation. Note that these files are large -- approximately 85GB compressed -- and take a week to parse on a 16 core Xeon workstation. As we are not taking issue with the way in which previous researchers have computationally identified reverts, replicating this step is not crucial. We recommend those interested in replication start with the revert datasets, described below.
 
 ### Revert datasets
 Datasets in `datasets/revert_data/` include every bot-bot revert across pages in all namespaces for each language, generated from parsing the dumps by the scripts called in the `Makefile`. They are compressed using bzip2 and in TSV format. The format of these datasets can be seen in `analysis/0-load-process-data.ipynb`. Starting with these datasets in this repo lets you reproduce the novel parts of our analysis pipeline. Note that there are some duplicate rows in this dataset, which can be easily removed with a function like `df.drop_duplicates()` in pandas (this will be fixed in a future version).
