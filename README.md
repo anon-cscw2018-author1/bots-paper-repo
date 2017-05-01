@@ -17,6 +17,12 @@ Datasets in `datasets/processed_data/` are created out of the analyses in the Ju
 
 - `possible_botfights.pickle.bz2` and `possible_botfights.tsv.bz2` are bzip2-compressed filtered datasets of `df_all_comments_parsed_2016.pickle`, containing reverts from all langauges in our analysis that are possible cases of bot-bot conflict. 
 
+### Bot datasets
+
+- `datasets\crosswiki_category_bot_20170328.tsv` is generated from `get_category_bots.py` (also made in the `Makefile`) and contains a list of bots based on Wikidata categories for various language versions of Wikipedia's equivalent of [Category:All Wikipedia bots](https://www.wikidata.org/wiki/Q3681760)
+
+- `datasets\crosswiki_unified_bot_20170328.tsv` is made in the `Makefile` and contains the above dataset combined with lists of bots from the `user_groups` and `former_user_groups` database tables ("the bot flag") in our seven language versions of Wikipedia. This dataset can be considered as complete of a list of current and historical bots (including unauthorized bots) as is possible to automatically generate for these language versions of Wikipedia.
+
 ## Analyses
 ### Analyses in the paper
 Analyses that are presented in the paper are in the `analysis/paper_plots` folder, with Jupyter notebooks for each paper section (for example, section 4.2 on time to revert is presented in 4-2-time-to-revert.ipynb). Some of these notebooks include more plots than we were able to fit in the paper.
