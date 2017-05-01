@@ -3,7 +3,7 @@ Anonymous repo for a paper in submission to CSCW 2018.
 
 ## Datasets
 ### Data dumps
-This project begins with the the stub-meta-history.xml.gz dumps from the Wikimedia foundation. Note that these files are large -- approximately 85GB uncompressed.
+This project begins with the the stub-meta-history.xml.gz dumps from the Wikimedia foundation. Note that these files are large -- approximately 85GB compressed.
 
 ### Revert datasets
 Datasets in `datasets/revert_data/` are parsed bot-bot reverts for each language, generated from parsing the docs by the scripts called in the `Makefile`. They are compressed using bzip2 and in TSV format. The format of these datasets can be seen in `analysis/0-load-process-data.ipynb`.
