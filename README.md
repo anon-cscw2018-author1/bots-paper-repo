@@ -1,6 +1,17 @@
 # bots-paper-repo
 Anonymous repo for a paper in submission to CSCW 2018.
 
+## Requirements
+Python >=3.3, with the packages:
+```
+pip install mwcli mwreverts mwtypes mwxml jsonable docopt mysqltsv pandas seaborn
+```
+R >= 3.2, with the packages:
+```
+install.packages("ggplot2")
+install.packages("data.table")
+```
+Jupyter Notebooks >=4.0 for running notebooks, with the [IRKernel](https://github.com/IRkernel/IRkernel) for the R notebooks.
 ## Datasets
 
 ### 0. Bot lists
