@@ -11,7 +11,7 @@ RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py | python && \
     pip install ipython[notebook]
     
-RUN apt-get install -y libzmq3-dev libcurl4-openssl-dev && \
+RUN apt-get install -y libzmq3-dev libcurl4-openssl-dev r-base && \
     (echo "install.packages(c('rzmq','repr','IRkernel','IRdisplay', 'ggplot2', 'data.table'), \
     repos='http://cran.us.r-project.org')" && \
     echo "IRkernel::installspec()") | R --no-save && \
