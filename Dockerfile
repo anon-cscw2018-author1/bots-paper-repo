@@ -11,11 +11,24 @@ RUN apt-get update && \
     curl https://bootstrap.pypa.io/get-pip.py | python && \
     pip install ipython[notebook]
     
-RUN apt-get install -y libzmq3-dev libcurl4-openssl-dev r-base && \
-    (echo "install.packages(c('rzmq','repr','IRkernel','IRdisplay', 'ggplot2', 'data.table'), \
-    repos='http://cran.us.r-project.org')" && \
-    echo "IRkernel::installspec()") | R --no-save && \
-    mkdir -p workspace/notebooks workspace/data /root/.ipython/profile_default
+RUN conda config --add channels r && \
+    conda install --quiet --yes \
+    'rpy2=2.8*' \
+    'r-base=3.3.1 1' \
+    'r-irkernel=0.6*' \
+    'r-plyr=1.8*' \
+    'r-devtools=1.11*' \
+    'r-dplyr=0.4*' \
+    'r-ggplot2=2.1*' \
+    'r-tidyr=0.5*' \
+    'r-shiny=0.13*' \
+    'r-forecast=7.1*' \
+    'r-stringr=1.0*' \
+    'r-rsqlite=1.0*' \
+    'r-reshape2=1.4*' \
+    'r-caret=6.0*' \
+    'r-rcurl=1.95*' \
+    'r-randomforest=4.6*' && conda clean -tipsy
 
 USER main
 WORKDIR $HOME/notebooks
