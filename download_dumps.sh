@@ -1,18 +1,19 @@
 #!/bin/bash
 
-mkdir xmldatadumps
-mkdir xmldatadumps/public
+declare -a langs=("de" "en" "es" "fr" "ja" "pt" "zh")
+declare -a dump_date="20170420"
+declare -a dump_folder="/data/wikipedia/xmldatadumps/public"
+declare -a dump_mirror="https://dumps.wikimedia.your.org"
 
-declare -a arr=("de" "en" "es" "fr" "ja" "pt" "zh")
+for i in "${langs[@]}"; do
+    echo Downloading "$i"wiki_"$dump_date"
+    wget -O "$dump_folder"/"$i"wiki/"$dump_date"/"$i"wiki-"$dump_date"-sha1sums.txt "$dump_mirror"/"$i"wiki/"$dump_date"/"$i"wiki-"$dump_date"-sha1sums.txt
+    cat "$dump_folder"/"$i"wiki/"$dump_date"/"$i"wiki-"$dump_date"-sha1sums.txt | grep stub-meta-history | head -n -1 | awk '{ print $2; }' > "$i"wiki_"$dump_date"_to_download.txt
 
-for i in "${arr[@]}"; do
-   mkdir xmldatadumps/public/"$i"wiki/
-   mkdir xmldatadumps/public/"$i"wiki/20170101 
-done
+    cat "$i"wiki_"$dump_date"_to_download.txt | while read LINE
+    do
+        echo     Downloading $LINE
+        wget -nc -O "$dump_folder"/"$i"wiki/"$dump_date"/"$LINE" "$dump_mirror"/"$i"wiki/"$dump_date"/"$LINE"
+    done
 
-find xmldatadumps
-
-for i in "${arr[@]}"; do
-    wget -nc -O /data/wikipedia/xmldatadumps/public/"$i"wiki/20170101/"$i"wiki-20170101-stub-meta-history.xml.gz http://dumps.wikimedia.your.org/"$i"wiki/20170101/"$i"wiki-20170101-stub-meta-history.xml.gz --show-progress
-    sleep 5s
 done
