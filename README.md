@@ -1,5 +1,5 @@
 # bots-paper-repo
-Anonymous repo for a paper in submission to CSCW 2018.
+Anonymous repo for a paper in submission to CSCW 2018. Note that an updated anonymous repository is [here](https://github.com/anon-cscw2018-author1/bots-paper-repo-binder), containing updates we have made post-submission, including: bug fixes, April 2017 datasets, a reorganized structure, better documentation, and Docker/mybinder support so you can run the repo in a free Jupyter notebook server in your browser.
 
 ## Requirements
 Python >=3.3, with the packages:
